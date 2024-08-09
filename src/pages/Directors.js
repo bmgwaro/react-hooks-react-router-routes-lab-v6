@@ -1,16 +1,36 @@
 import { useEffect, useState } from "react";
+import NavBar from "../components/NavBar"; // Import NavBar
 
 function Directors() {
+  const [directors, setDirectors] = useState([]);
+
+  useEffect(() => {
+    // Fetch directors data (adjust the fetch URL to your needs)
+    fetch('http://localhost:3000/directors')
+      .then((response) => response.json())
+      .then((data) => setDirectors(data));
+  }, []);
+
   return (
     <>
       <header>
-        {/* What component should go here? */}
+        <NavBar /> {/* Include NavBar component */}
+        <h1>Directors Page</h1>
       </header>
       <main>
-        {/* Director info here! */}
+        {directors.map((director) => (
+          <article key={director.id}>
+            <h2>{director.name}</h2>
+            <ul>
+              {director.movies.map((movie) => (
+                <li key={movie}>{movie}</li>
+              ))}
+            </ul>
+          </article>
+        ))}
       </main>
     </>
   );
-};
+}
 
 export default Directors;
