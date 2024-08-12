@@ -1,11 +1,10 @@
 import { useEffect, useState } from "react";
-import NavBar from "../components/NavBar"; // Import NavBar
+import NavBar from "../components/NavBar"; 
 
 function Directors() {
   const [directors, setDirectors] = useState([]);
 
   useEffect(() => {
-    // Fetch directors data (adjust the fetch URL to your needs)
     fetch('http://localhost:3000/directors')
       .then((response) => response.json())
       .then((data) => setDirectors(data));
@@ -14,7 +13,7 @@ function Directors() {
   return (
     <>
       <header>
-        <NavBar /> {/* Include NavBar component */}
+        <NavBar /> 
         <h1>Directors Page</h1>
       </header>
       <main>

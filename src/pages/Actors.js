@@ -1,11 +1,10 @@
 import { useEffect, useState } from "react";
-import NavBar from "../components/NavBar"; // Import NavBar
+import NavBar from "../components/NavBar"; 
 
 function Actors() {
   const [actors, setActors] = useState([]);
 
   useEffect(() => {
-    // Fetch actors data (adjust the fetch URL to your needs)
     fetch('http://localhost:3000/actors')
       .then((response) => response.json())
       .then((data) => setActors(data));
@@ -14,7 +13,7 @@ function Actors() {
   return (
     <>
       <header>
-        <NavBar /> {/* Include NavBar component */}
+        <NavBar /> 
         <h1>Actors Page</h1>
       </header>
       <main>
