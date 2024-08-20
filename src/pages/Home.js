@@ -11,19 +11,18 @@ function Home() {
       .then((data) => setMovies(data));
   }, []);
 
+  
   return (
-    <>
-      <header>
-        <NavBar /> 
-        <h1>Home Page</h1>
-      </header>
-      <main>
+    <div>
+      <NavBar/>
+      <h1>Home Page</h1>
+      <div className="movie-list">
         {movies.map((movie) => (
-          <MovieCard key={movie.id} title={movie.title} id={movie.id} />
+          <MovieCard key={movie.id} id={movie.id} title={movie.title} />
         ))}
-      </main>
-    </>
+      </div>
+    </div>
   );
-}
+};
 
 export default Home;

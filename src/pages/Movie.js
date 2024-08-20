@@ -15,19 +15,17 @@ function Movie() {
   if (!movie) return <p>Loading...</p>;
 
   return (
-    <>
-      <header>
-        <NavBar /> 
-        <h1>{movie.title}</h1>
-      </header>
-      <main>
-        <p>{movie.time}</p>
-        {movie.genres.map((genre) => (
-          <span key={genre}>{genre}</span>
+    <div>
+      <NavBar/>
+      <h1>{movie.title}</h1>
+      <p>{movie.time}</p>
+      <div>
+        {movie.genres.map((genre, index) => (
+          <span key={index}>{genre}</span>
         ))}
-      </main>
-    </>
+      </div>
+    </div>
   );
-}
+};
 
 export default Movie;
